@@ -35,7 +35,10 @@ public class TestConfig implements CommandLineRunner {
 
         Flight f1 = new Flight(null, 1, p1, 1020.0, 5.5, a1, a2, LocalDateTime.of(2025, 03, 20, 14, 30), LocalDateTime.of(2025, 03, 20, 15, 30));
 
+        Flight f2 = new Flight(null, 1, p1, 1020.0, 5.5, a1, a2, LocalDateTime.of(2025, 03, 20, 14, 30), LocalDateTime.of(2025, 03, 20, 15, 30));
+
         flightRepository.save(f1);
+        flightRepository.save(f2);
 
 
     }

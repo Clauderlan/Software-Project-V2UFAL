@@ -1,6 +1,7 @@
 package com.c7.aeroporto.services;
 
 
+import com.c7.aeroporto.dtos.BaggageInfoDTO;
 import com.c7.aeroporto.entities.Flight;
 import com.c7.aeroporto.repositories.FlightRepository;
 import com.c7.aeroporto.repositories.PlaneRepository;
@@ -36,5 +37,19 @@ public class FlightService {
     public Flight findByPlaneName(String planeName) {
 
         return flightRepository.findByPlaneName(planeName).orElseThrow(() -> new ResourceNotFoundException(planeName));
+    }
+
+    public List<Flight> findByDestinationCity(String city){
+        return flightRepository.findByDestinationCity(city).orElseThrow(() -> new ResourceNotFoundException(city));
+    }
+
+    public BaggageInfoDTO baggageInfo(Long flightId){
+
+        Flight flight = flightRepository.findById(flightId).orElseThrow(() -> new ResourceNotFoundException(flightId));
+
+        BaggageInfoDTO baggageInfoDTO = new BaggageInfoDTO(flight, flight.getOverweightBaggageFee(), flight.getPlane().getMaxLuggageWeight(), flight.getPlane().getMaxWeightPerLuggage());
+
+        return baggageInfoDTO;
+
     }
 }

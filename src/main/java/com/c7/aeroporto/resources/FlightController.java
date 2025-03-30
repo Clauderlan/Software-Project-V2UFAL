@@ -1,5 +1,6 @@
 package com.c7.aeroporto.resources;
 
+import com.c7.aeroporto.dtos.BaggageInfoDTO;
 import com.c7.aeroporto.entities.Flight;
 import com.c7.aeroporto.services.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,20 @@ public class FlightController {
     public ResponseEntity<Flight> findByPlaneName(@PathVariable String planeName){
         Flight flight = flightService.findByPlaneName(planeName);
         return ResponseEntity.ok().body(flight);
+    }
+
+    // FIND BY DESTINATION.. CITY
+    @GetMapping(value = "/destination/{city}")
+    public ResponseEntity<List<Flight>> findByDestinationCity(@PathVariable String city){
+        List<Flight> flights = flightService.findByDestinationCity(city);
+        return ResponseEntity.ok().body(flights);
+    }
+
+    // BAGGAGE INFO
+
+    @GetMapping(value = "/baggageInfo/{id}")
+    public ResponseEntity<BaggageInfoDTO> baggageInfo(@PathVariable Long id){
+        BaggageInfoDTO baggageInfoDTO = flightService.baggageInfo(id);
+        return ResponseEntity.ok().body(baggageInfoDTO);
     }
 }
