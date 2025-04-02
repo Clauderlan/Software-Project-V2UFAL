@@ -1,6 +1,7 @@
 # Software-Project-V2UFAL
 ## Execução do código
-Para executar o servidor precisamos rodar o arquivo "src/main/java/com/c7/aeroporto/AeroportoApplication.java"
+Para executar o servidor precisamos rodar o arquivo "src/main/java/com/c7/aeroporto/AeroportoApplication.java", além de ter o Java 21 instalado em sua máquina.
+Eu recomendo o Intellij IDEA como IDE para navegação no código.
 ## Funcionalidades implementadas usando OO:
 <ul>
   <li>Flight Search - Faz o levantamento de todos os voos instaurados no aeroporto no momento e apresenta para o usuário.</li>
